@@ -6,19 +6,25 @@ import ChooseSection from '../components/ChooseSection.vue';
 import Blog from '../components/Blog.vue';
 import Login from '../components/Login.vue';
 
-
 const currentSection = ref('home');
+const isMenuOpen = ref(false);
 
 const setCurrentSection = (section) => {
   currentSection.value = section;
+  isMenuOpen.value = false; // Close menu on section change
+};
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
 };
 
 // Define the component mapping
 const sectionComponents = {
-  home:Home ,
+  home: Home,
   about: About,
   choose: ChooseSection,
   blog: Blog,
+  login: Login,
 };
 </script>
 
@@ -26,12 +32,17 @@ const sectionComponents = {
   <div class="navBar">
     <div class="nav">
       <div class="logo">RideRight</div>
-      <div class="links">
+      <div class="menu-toggle" @click="toggleMenu" :class="{ 'active': isMenuOpen }">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="links" :class="{ 'active': isMenuOpen }">
         <a @click="setCurrentSection('home')" class="link">Home</a>
         <a @click="setCurrentSection('about')" class="link">About</a>
         <a @click="setCurrentSection('choose')" class="link">Why Us</a>
         <a @click="setCurrentSection('blog')" class="link">Blog</a>
-        <button class="logInBtn" @click=" setCurrentSection('login')">Log In</button>
+        <button class="logInBtn" @click="setCurrentSection('login')">Log In</button>
       </div>
     </div>
   </div>
@@ -68,6 +79,19 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 1110px;
   margin: 0 auto;
+  position: relative;
+}
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
 .links {
   display: flex;
@@ -109,6 +133,59 @@ h1, h2, h3, h4, h5, h6 {
 .book {
   z-index: 0;
   position: relative;
-  margin-top: -120px; /* Adjust this value as needed */
+  margin-top: -120px;
+}
+
+/* Updated styles for responsive menu */
+@media screen and (max-width: 768px) {
+  .nav {
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgb(27, 31, 113);
+    padding: 20px;
+    gap: 15px;
+  }
+  .links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+  }
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  
 }
 </style>

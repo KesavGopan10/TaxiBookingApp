@@ -71,6 +71,13 @@ h1{
     text-decoration: none;
     cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+    .aboutSection {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+}
 
 
 </style>

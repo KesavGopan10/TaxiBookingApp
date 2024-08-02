@@ -103,10 +103,11 @@ footer {
     align-items: center;
     flex-direction: row;
     width: 100%;
-    max-width: 1110px;
+    max-width: 1100px;
     margin: 20px auto;
     padding: 0 20px;
     flex-wrap: wrap;
+    box-sizing: border-box;
 }
 .firstsection {
     display: flex;
@@ -283,5 +284,20 @@ button:hover {
 }
 .error {
     color: red;
+}
+@media screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .firstsection, .secondsection, .thirdsection {
+        width: 90%;
+        align-self: center;
+        align-items: center;
+    }
+    button{
+        align-self: center;
+    }
 }
 </style>

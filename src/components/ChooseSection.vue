@@ -125,5 +125,31 @@
         width: 100%;
         height: 100%;
     }
+    @media screen and (max-width: 768px) {
+        .cards {
+            flex-direction: column;
+            gap: 30px;
+            
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card:nth-child(2) {    
+            position: static;
+        }
+        
+    }
+    @media screen and (max-width: 500px) {
+        .heading h1 {
+            font-size: 28px;
+        }    
+        .card {
+            max-width: 250px;
+        }       
+    }
+        
+    
 
 </style>

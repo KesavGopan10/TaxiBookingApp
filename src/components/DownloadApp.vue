@@ -117,4 +117,31 @@ h1, p {
     width: 100%;
     height: auto; /* Ensure image maintains aspect ratio */
 }
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        gap: 20px; 
+    } 
+
+    .content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contentPortion {
+        width: 100%;
+    }
+
+    .image {
+       display: none;
+    }
+
+    .links {
+        width: 50%;
+        gap: 20px;
+    }
+    img{
+        width: 100%;
+    }
+}
 </style>

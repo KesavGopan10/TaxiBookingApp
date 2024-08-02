@@ -81,4 +81,20 @@ img {
     width: 100%;
     height: 100%;
 }
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 30px;
+        
+    }
+    .text {
+        width: 90%;
+        
+        
+    }
+    .image {
+        width: 100%;
+    }   
+    
+}
 </style>
