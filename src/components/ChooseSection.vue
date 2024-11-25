@@ -10,13 +10,13 @@
                     <img src="https://html.design/demo/elaxi/images/w1.png" alt="Icon">
                 </div>
                 <h2>Best Price Guarantee</h2>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.. </p>
             </div>
             <div class="card">
                 <div class="icon">
                     <img src="https://html.design/demo/elaxi/images/w3.png" alt="Icon">
                 </div>
-                <h2>Fast & Easy Booking</h2>
+                <h2>Fast and Easy Booking</h2>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
             </div>  
             <div class="card">
